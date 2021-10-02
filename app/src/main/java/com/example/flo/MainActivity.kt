@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       /* val song=Song(binding.mainMiniplayerTitleTv.text.toString(),binding.mainMiniplayerSingerTv.text.toString())
+        val song=Song(binding.mainMiniplayerTitleTv.text.toString(),binding.mainMiniplayerSingerTv.text.toString())
         Log.d("Log test",song.title+song.singer)
 
         binding.mainPlayerLayout.setOnClickListener{
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("singer",song.singer)
 
             startActivity(intent)
-        }*/
+        }
 
 
 

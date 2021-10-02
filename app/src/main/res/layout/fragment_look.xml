@@ -43,7 +43,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/round_button"
                 android:textSize="15sp"
                 android:minHeight="0dp"
                 android:minWidth="0dp"
@@ -57,7 +56,6 @@
                 android:layout_marginEnd="10dp"
                 android:minHeight="0dp"
                 android:minWidth="0dp"
-                android:background="@drawable/round_button"
                 android:textSize="15sp"
                 android:text="영상"/>
 
@@ -67,7 +65,6 @@
                 android:layout_marginEnd="10dp"
                 android:minHeight="0dp"
                 android:minWidth="0dp"
-                android:background="@drawable/round_button"
                 android:textSize="15sp"
                 android:text="장르"/>
 
@@ -77,7 +74,6 @@
                 android:layout_marginEnd="10dp"
                 android:minHeight="0dp"
                 android:minWidth="0dp"
-                android:background="@drawable/round_button"
                 android:textSize="15sp"
                 android:text="상황"/>
 
@@ -87,7 +83,6 @@
                 android:layout_marginEnd="10dp"
                 android:minHeight="0dp"
                 android:minWidth="0dp"
-                android:background="@drawable/round_button"
                 android:textSize="15sp"
                 android:text="분위기"/>
 
@@ -129,7 +124,6 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/shadow_background"
             app:layout_constraintTop_toBottomOf="@id/look_chart_title_tv"
             android:orientation="vertical">
 

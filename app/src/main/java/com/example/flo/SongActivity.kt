@@ -2,6 +2,7 @@ package com.example.flo
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.databinding.ActivityMainBinding
 import com.example.flo.databinding.ActivitySongBinding
@@ -15,12 +16,13 @@ class SongActivity : AppCompatActivity() {
         binding = ActivitySongBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-      /*  if(intent.hasExtra("title")&& intent.hasExtra("singer")){
-            binding.songMusicTitleTv.text=intent.getStringExtra("title")
-            binding.songSingerNameTv.text=intent.getStringExtra("singer")
+
+        if(intent.hasExtra("title")&& intent.hasExtra("singer")){
+            binding.songTitleTv.text=intent.getStringExtra("title")
+            binding.songSingerTv.text=intent.getStringExtra("singer")
         }
 
-        binding.songDownIb.setOnCickListener{
+        binding.songDownIb.setOnClickListener{
             finish() //SongActivity 끄기기
        }
 
@@ -36,13 +38,13 @@ class SongActivity : AppCompatActivity() {
 
     fun setPlayerStatus(isPlaying:Boolean){
         if(isPlaying){
-            binding.songPauseIv.visibility=View.GONE
-            binding.songMinplayerIv.visibility=View.VISIBLE
+            binding.songPauseIv.visibility= View.GONE
+            binding.songMiniplayerIv.visibility=View.VISIBLE
         }
         else{
-            binding.songMinplayerIv.visibility=View.GONE
+            binding.songMiniplayerIv.visibility=View.GONE
             binding.songPauseIv.visibility=View.VISIBLE
-        }*/
+        }
     }
 
 }

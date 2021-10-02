@@ -19,16 +19,17 @@ class AlbumFragment : Fragment() {
     ): View? {
         binding= FragmentAlbumBinding.inflate(inflater,container,false)
 
+        binding.albumPlayIv.bringToFront()
 
-      /*  binding.albumBackIv.setOnClickListener{
+        binding.albumArrowIb.setOnClickListener{
             (context as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frm,HomeFragment())
                 .commitAllowingStateLoss() //나중에 학습ㄱ
         }
 
-        binding.songLilacLayout.setOnClickListener{
-            Toast.makeText(activity,"라일락",Toast.LENGTH_SHORT).show()
-        }*/
+        //binding.songLilacLayout.setOnClickListener{
+        //    Toast.makeText(activity,"라일락",Toast.LENGTH_SHORT).show()
+        //}
 
         return binding.root
     }
