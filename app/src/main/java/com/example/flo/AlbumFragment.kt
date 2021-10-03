@@ -19,7 +19,7 @@ class AlbumFragment : Fragment() {
     ): View? {
         binding= FragmentAlbumBinding.inflate(inflater,container,false)
 
-        binding.albumPlayIv.bringToFront()
+       //binding.albumPlayIv.bringToFront()
 
         binding.albumArrowIb.setOnClickListener{
             (context as MainActivity).supportFragmentManager.beginTransaction()

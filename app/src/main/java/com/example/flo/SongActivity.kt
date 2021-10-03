@@ -1,8 +1,10 @@
 package com.example.flo
 
+import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.databinding.ActivityMainBinding
 import com.example.flo.databinding.ActivitySongBinding
@@ -15,6 +17,9 @@ class SongActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySongBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        //MAINLAYOUT.setPadding(0, statusBarHeight(this), 0, 0)
 
 
         if(intent.hasExtra("title")&& intent.hasExtra("singer")){
@@ -45,6 +50,13 @@ class SongActivity : AppCompatActivity() {
             binding.songMiniplayerIv.visibility=View.GONE
             binding.songPauseIv.visibility=View.VISIBLE
         }
+    }
+
+    fun statusBarHeight(context: Context): Int {
+        val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
+
+        return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
+        else 0
     }
 
 }
