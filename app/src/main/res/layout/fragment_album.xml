@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -84,8 +85,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/song_albumimg_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/album_explain_tv"
@@ -118,7 +119,7 @@
 
     <ImageView
         android:layout_width="50dp"
-        android:layout_height="160dp"
+        android:layout_height="150dp"
         app:layout_constraintStart_toEndOf="@id/song_albumimg_iv"
         android:src="@drawable/img_album_lp"
         android:layout_marginStart="-10dp"
@@ -126,44 +127,54 @@
         app:layout_constraintBottom_toBottomOf="@id/song_albumimg_iv"/>
 
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/song_albumimg_iv"
+            app:tabIndicatorColor="@color/purple_500"
+            app:tabIndicatorFullWidth="false"
+            app:tabRippleColor="#00ff0000"
+            app:tabSelectedTextColor="@color/purple_500"
+            app:tabTextColor="@color/black">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/song_albumimg_iv"
-        app:tabTextColor="@color/black"
-        app:tabSelectedTextColor="@color/purple_500"
-        app:tabIndicatorColor="@color/purple_500"
-        android:layout_marginStart="8dp"
-        app:tabIndicatorFullWidth="false"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/albumContentVp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout"/>
 
-        android:layout_marginEnd="8dp">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수록곡"/>
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:text="상세정보"/>
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="영상"/>
+<!--            <com.google.android.material.tabs.TabItem-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="수록곡" />-->
 
-    </com.google.android.material.tabs.TabLayout>
+<!--            <com.google.android.material.tabs.TabItem-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
 
-    <View
+<!--                android:text="상세정보" />-->
+
+<!--            <com.google.android.material.tabs.TabItem-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="영상" />-->
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
         android:layout_width="0dp"
         android:layout_height="3px"
         app:layout_constraintStart_toStartOf="parent"
@@ -171,567 +182,568 @@
         android:background="#E3E0E0"
         app:layout_constraintTop_toBottomOf="@id/tabLayout"/>
 
-    <LinearLayout
-        android:id="@+id/album_mix_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/mixbtn_border"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout"
-
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/album_mix_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingVertical="6dp"
-        android:text="내 취향 MIX"
-        android:textColor="#A89E9E"
-
-        android:layout_gravity="center_vertical"
-        android:textSize="15sp" />
-
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:src="@drawable/btn_toggle_off" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/album_check_iv"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/album_mix_layout"
-        app:layout_constraintBottom_toTopOf="@id/album_songlist_scrollview"
-        android:src="@drawable/btn_playlist_select_off"
-        android:layout_marginStart="13dp"/>
-
-    <TextView
-        android:id="@+id/album_selectall_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="전체선택"
-        app:layout_constraintStart_toEndOf="@id/album_check_iv"
-        app:layout_constraintTop_toTopOf="@id/album_check_iv"
-        app:layout_constraintBottom_toBottomOf="@id/album_check_iv"/>
-
-    <TextView
-        android:id="@+id/album_listenall_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="전체듣기"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="13dp"
-        app:layout_constraintTop_toBottomOf="@id/album_mix_layout"
-        app:layout_constraintBottom_toTopOf="@id/album_songlist_scrollview"/>
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/icon_browse_arrow_right"
-            app:layout_constraintEnd_toStartOf="@id/album_listenall_tv"
-            app:layout_constraintTop_toTopOf="@id/album_listenall_tv"
-            app:layout_constraintBottom_toBottomOf="@id/album_listenall_tv"/>
-
-
-
-
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/album_songlist_scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/album_selectall_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-
-    <GridLayout
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rowCount="8"
-        android:columnCount="4">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="01"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="center_vertical"
-
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_player_related"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-             />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="02"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="03"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="04"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="center_vertical"
-
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_player_related"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="05"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="06"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="07"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="08"
-            android:textSize="16sp"
-            android:layout_marginStart="13dp"/>
-
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="center_vertical"
-
-                    android:scaleType="fitXY"
-                    android:src="@drawable/btn_player_related"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="라일락"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이유(IU)"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_miniplayer_play"
-            android:layout_marginTop="8dp"
-            />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/btn_player_more"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="8dp"/>
-
-
-
-
-    </GridLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-</androidx.core.widget.NestedScrollView>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/album_mix_layout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/mixbtn_border"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tabLayout"-->
+
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:orientation="horizontal">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/album_mix_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingVertical="6dp"-->
+<!--        android:text="내 취향 MIX"-->
+<!--        android:textColor="#A89E9E"-->
+
+<!--        android:layout_gravity="center_vertical"-->
+<!--        android:textSize="15sp" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/album_toggleoff_iv"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:src="@drawable/btn_toggle_off" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/album_check_iv"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/album_mix_layout"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/album_songlist_scrollview"-->
+<!--        android:src="@drawable/btn_playlist_select_off"-->
+<!--        android:layout_marginStart="13dp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/album_selectall_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="전체선택"-->
+<!--        app:layout_constraintStart_toEndOf="@id/album_check_iv"-->
+<!--        app:layout_constraintTop_toTopOf="@id/album_check_iv"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/album_check_iv"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/album_listenall_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="전체듣기"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginEnd="13dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/album_mix_layout"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/album_songlist_scrollview"/>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:src="@drawable/icon_browse_arrow_right"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/album_listenall_tv"-->
+<!--            app:layout_constraintTop_toTopOf="@id/album_listenall_tv"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/album_listenall_tv"/>-->
+
+
+
+
+
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:id="@+id/album_songlist_scrollview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/album_selectall_tv"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="15dp">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+
+
+
+<!--    <GridLayout-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:rowCount="8"-->
+<!--        android:columnCount="4">-->
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="01"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/song_lilac_layout"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="18dp"-->
+<!--                    android:layout_gravity="center_vertical"-->
+
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/album_title"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--             />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="02"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="03"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="04"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="18dp"-->
+<!--                    android:layout_gravity="center_vertical"-->
+
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/album_title"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="05"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="06"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="07"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="08"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginStart="13dp"/>-->
+
+<!--        <LinearLayout-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="18dp"-->
+<!--                    android:layout_gravity="center_vertical"-->
+
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/btn_player_related"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="라일락"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="18sp"/>-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="아이유(IU)"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_marginBottom="25dp"-->
+<!--                android:textSize="14sp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_miniplayer_play"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:src="@drawable/btn_player_more"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginTop="8dp"/>-->
+
+
+
+
+<!--    </GridLayout>-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+
+
+<!--</androidx.core.widget.NestedScrollView>-->
 
 
 

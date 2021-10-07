@@ -730,17 +730,26 @@
 
         </HorizontalScrollView>
 
-
-        <ImageView
-            android:id="@+id/home_banner1_iv"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/home_banner_vp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
-            android:adjustViewBounds="true"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/img_home_viewpager_exp"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_todaypodcast_scrollview" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_todaypodcast_scrollview"/>
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/home_banner1_iv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginVertical="15dp"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:src="@drawable/img_home_viewpager_exp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/home_todaypodcast_scrollview" />-->
 
 
         <TextView
@@ -754,7 +763,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_banner1_iv" />
+            app:layout_constraintTop_toBottomOf="@id/home_banner_vp" />
 
         <HorizontalScrollView
             android:id="@+id/home_videocollection_scrollview"

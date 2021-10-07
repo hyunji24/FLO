@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="둘러보기"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="20dp"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -47,6 +47,7 @@
                 android:minHeight="0dp"
                 android:minWidth="0dp"
                 android:backgroundTint="#3F3FFF"
+                android:background="@drawable/round_button"
                 android:textColor="@color/white"
                 android:text="차트"/>
 
@@ -57,6 +58,7 @@
                 android:minHeight="0dp"
                 android:minWidth="0dp"
                 android:textSize="15sp"
+                android:background="@drawable/round_button"
                 android:text="영상"/>
 
             <Button
@@ -66,6 +68,7 @@
                 android:minHeight="0dp"
                 android:minWidth="0dp"
                 android:textSize="15sp"
+                android:background="@drawable/round_button"
                 android:text="장르"/>
 
             <Button
@@ -75,6 +78,7 @@
                 android:minHeight="0dp"
                 android:minWidth="0dp"
                 android:textSize="15sp"
+                android:background="@drawable/round_button"
                 android:text="상황"/>
 
             <Button
@@ -84,6 +88,7 @@
                 android:minHeight="0dp"
                 android:minWidth="0dp"
                 android:textSize="15sp"
+                android:background="@drawable/round_button"
                 android:text="분위기"/>
 
 
@@ -123,6 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/shadow_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/look_chart_title_tv"
             android:orientation="vertical">
@@ -223,11 +229,11 @@
                     android:layout_weight="1" />
 
 
-                <Button
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/btn_play_black"
-                    android:backgroundTint="@color/black"
+                    android:src="@drawable/btn_player_play"
+
                     android:layout_gravity="center_vertical|end"/>
 
                 <!--<ImageView
@@ -294,11 +300,10 @@
                     android:layout_weight="1" />
 
 
-                <Button
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/btn_play_black"
-                    android:backgroundTint="@color/black"
+                    android:src="@drawable/btn_player_play"
                     android:layout_gravity="center_vertical|end"/>
 
 
@@ -359,11 +364,10 @@
                     android:layout_weight="1" />
 
 
-                <Button
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/btn_play_black"
-                    android:backgroundTint="@color/black"
+                    android:background="@drawable/btn_player_play"
                     android:layout_gravity="center_vertical|end"/>
 
 
@@ -424,11 +428,10 @@
                     android:layout_weight="1" />
 
 
-                <Button
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/btn_play_black"
-                    android:backgroundTint="@color/black"
+                    android:src="@drawable/btn_player_play"
                     android:layout_gravity="center_vertical|end"/>
 
 
@@ -489,11 +492,10 @@
                     android:layout_weight="1" />
 
 
-                <Button
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/btn_play_black"
-                    android:backgroundTint="@color/black"
+                    android:background="@drawable/btn_player_play"
                     android:layout_gravity="center_vertical|end"/>
 
 
