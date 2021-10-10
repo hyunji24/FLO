@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class AlbumFragment : Fragment() {
 
     lateinit var binding:FragmentAlbumBinding
-    var toggleIsOff:Boolean=true
+
     val information=arrayListOf("수록곡","상세정보","영상")
 
     override fun onCreateView(
@@ -29,19 +29,11 @@ class AlbumFragment : Fragment() {
                 .commitAllowingStateLoss() //나중에 학습ㄱ
         }
 
-//        binding.albumToggleoffIv.setOnClickListener {
-//            setToggleStatus(toggleIsOff)
-//        }
-//
-//
-//
-//        binding.songLilacLayout.setOnClickListener{
-//            Toast.makeText(activity,"라일락",Toast.LENGTH_SHORT).show()
-//        }
+
         val albumAdapter=AlbumViewpagerAdapter(this)
         binding.albumContentVp.adapter=albumAdapter
 
-        TabLayoutMediator(binding.tabLayout,binding.albumContentVp){
+        TabLayoutMediator(binding.albumTabLayout,binding.albumContentVp){
             tab,position ->
             tab.text=information[position]
         }.attach() //viewpager랑 tablayout붙이기
@@ -50,16 +42,5 @@ class AlbumFragment : Fragment() {
         return binding.root
     }
 
-//    fun setToggleStatus(toggleOff:Boolean){
-//        if(toggleOff) {
-//            binding.albumToggleoffIv.setImageResource(R.drawable.btn_toggle_on)
-//            toggleIsOff=false
-//
-//        }
-//        else {
-//            binding.albumToggleoffIv.setImageResource(R.drawable.btn_toggle_off)
-//            toggleIsOff=true
-//        }
-//
-//    }
+
 }
