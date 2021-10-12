@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
 
     <TextView
         android:id="@+id/detailfrag_album_title"
@@ -12,7 +19,7 @@
         android:layout_marginTop="20dp"
         android:text="앨범명"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:text="IU 5th Album LILAC"
-        android:textSize="20sp"
+
         app:layout_constraintStart_toEndOf="@id/detailfrag_album_title"
         app:layout_constraintTop_toTopOf="@id/detailfrag_album_title" />
 
@@ -33,7 +40,7 @@
         android:layout_marginTop="8dp"
         android:text="아티스트"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/detailfrag_album_title"
         app:layout_constraintTop_toBottomOf="@id/detailfrag_album_title" />
 
@@ -42,7 +49,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="아이유 (IU)"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/detailfrag_album_tv"
         app:layout_constraintTop_toTopOf="@id/detailfrag_artist_title" />
 
@@ -54,7 +60,7 @@
         android:layout_marginTop="8dp"
         android:text="발매사"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/detailfrag_artist_title"
         app:layout_constraintTop_toBottomOf="@id/detailfrag_artist_title" />
 
@@ -63,7 +69,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="카카오엔터테인먼트"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/detailfrag_album_tv"
         app:layout_constraintTop_toTopOf="@id/detailfrag_company_title" />
 
@@ -74,7 +79,7 @@
         android:layout_marginTop="8dp"
         android:text="기획사"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/detailfrag_company_title"
         app:layout_constraintTop_toBottomOf="@id/detailfrag_company_title" />
 
@@ -83,7 +88,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EDAM엔터테인먼트"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/detailfrag_album_tv"
         app:layout_constraintTop_toTopOf="@id/detailfrag_company2_title" />
 
@@ -94,7 +98,7 @@
         android:layout_marginTop="30dp"
         android:text="앨범정보"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/detailfrag_company2_title"
         app:layout_constraintTop_toBottomOf="@id/detailfrag_company2_title" />
 
@@ -108,5 +112,7 @@
         app:layout_constraintStart_toStartOf="@id/detailfrag_content_title"
         app:layout_constraintTop_toBottomOf="@id/detailfrag_content_title" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

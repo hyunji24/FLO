@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import com.example.flo.databinding.FragmentAlbumBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
+
+//viewpager scrollview https://stackoverflow.com/questions/57819500/android-nestedscrollview-doesnt-work-in-layout-with-viewpager?noredirect=1&lq=1
+//https://stackoverflow.com/questions/30580954/viewpager-in-a-nestedscrollview]
 class AlbumFragment : Fragment() {
 
     lateinit var binding:FragmentAlbumBinding

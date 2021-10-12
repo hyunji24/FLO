@@ -34,6 +34,19 @@ class HomeFragment : Fragment() {
         binding.homeBannerVp.adapter=bannerAdapter
         binding.homeBannerVp.orientation= ViewPager2.ORIENTATION_HORIZONTAL
 
+        val homeAdapter=HomeViewpagerAdapter(this)
+        binding.homeFirstVp.adapter=homeAdapter
+
+        binding.homeCircleIndicator.setViewPager(binding.homeFirstVp)
+        binding.homeCircleIndicator.createIndicators(4,0)
+
+        binding.homeFirstVp.registerOnPageChangeCallback(object:ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                binding.homeCircleIndicator.animatePageSelected(position)
+            }
+        })
+
+
 
 
         return binding.root
