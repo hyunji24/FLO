@@ -14,16 +14,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val song=Song(binding.mainMiniplayerTitleTv.text.toString(),binding.mainMiniplayerSingerTv.text.toString())
-        Log.d("Log test",song.title+song.singer)
+        //val song=Song(binding.mainMiniplayerTitleTv.text.toString(),binding.mainMiniplayerSingerTv.text.toString())
+        //Log.d("Log test",song.title+song.singer)
+        val song=Song("라일락","아이유(IU)",215,false)
+
 
         binding.mainPlayerLayout.setOnClickListener{
             //startActivity(Intent(this,SongActivity::class.java))
             val intent=Intent(this,SongActivity::class.java)
-
             intent.putExtra("title",song.title)
             intent.putExtra("singer",song.singer)
-
+            intent.putExtra("isPlaying",song.isPlaying)
+            intent.putExtra("playTime",song.playTime)
             startActivity(intent)
         }
 

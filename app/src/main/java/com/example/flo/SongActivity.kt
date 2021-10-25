@@ -2,7 +2,10 @@ package com.example.flo
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +18,9 @@ class SongActivity : AppCompatActivity() {
     lateinit var binding: ActivitySongBinding
     var isitRandom:Boolean=false
     var repeatStatus:Int=0
+    private val song:Song=Song()
+    private lateinit var player:Player
+    private val handler= Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,29 +30,29 @@ class SongActivity : AppCompatActivity() {
         //window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         //MAINLAYOUT.setPadding(0, statusBarHeight(this), 0, 0)
 
+        initSong()
+
+        player=Player(song.playTime,song.isPlaying)
+        player.start() //이걸 해줘야 쓰레드 시작됨
 
 
 
-        if(intent.hasExtra("title")&& intent.hasExtra("singer")){
-            binding.songTitleTv.text=intent.getStringExtra("title")
-            binding.songSingerTv.text=intent.getStringExtra("singer")
-        }
+
 
         binding.songDownIb.setOnClickListener{
             finish() //SongActivity 끄기기
        }
-
         binding.songMiniplayerIv.setOnClickListener{
+            player.isPlaying=true
             setPlayerStatus(false)
         }
         binding.songPauseIv.setOnClickListener{
+            player.isPlaying=false
            setPlayerStatus(true)
         }
-
         binding.songRandomIv.setOnClickListener {
             setRandomStatus(isitRandom)
         }
-
        binding.songRepeatIv.setOnClickListener {
             setRepeatStatus(repeatStatus)
         }
@@ -87,7 +93,20 @@ class SongActivity : AppCompatActivity() {
     }
 
 
+    private fun initSong(){
+        if(intent.hasExtra("title")&& intent.hasExtra("singer")&&intent.hasExtra("playTime")&&intent.hasExtra("isPlaying")){
 
+            song.title=intent.getStringExtra("title")!!
+            song.singer=intent.getStringExtra("singer")!!
+            song.playTime=intent.getIntExtra("playTime",0)
+            song.isPlaying=intent.getBooleanExtra("isPlaying",false)
+
+            binding.songTitleTv.text=song.title
+            binding.songSingerTv.text=song.singer
+            setPlayerStatus(song.isPlaying)
+
+        }
+    }
 
     fun setPlayerStatus(isPlaying:Boolean){
         if(isPlaying){
@@ -100,11 +119,40 @@ class SongActivity : AppCompatActivity() {
         }
     }
 
-    fun statusBarHeight(context: Context): Int {
-        val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
 
-        return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
-        else 0
+
+    inner class Player(private val playTime:Int,var isPlaying:Boolean):Thread(){
+        private var second= 0
+        override fun run() { //thread.start하면 실행되는 코드
+            try {
+                while(true) {
+                    if(second>=playTime){
+                        break
+                    }
+
+                    if(isPlaying){
+                        sleep(1000)
+                        second++
+                        runOnUiThread {
+                            //뷰 렌더링
+                            binding.songSeekbar.progress=second*1000/playTime
+                            binding.songStartTimeTv.text =String.format("%02d:%02d", second / 60, second % 60)
+                        }
+                    }
+
+                }
+            }catch(e:InterruptedException){
+                Log.d("interrupt","쓰레드가 종료되었습니다.")
+            }
+
+        }
+
+    }
+
+    override fun onDestroy() { //이 화면이 꺼지면 불림
+        player.interrupt()
+        super.onDestroy()
+
     }
 
 }
