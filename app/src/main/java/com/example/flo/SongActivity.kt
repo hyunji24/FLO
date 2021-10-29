@@ -131,7 +131,7 @@ class SongActivity : AppCompatActivity() {
                     }
 
                     if(isPlaying){
-                        sleep(1000)
+                        sleep(2000)
                         second++
                         runOnUiThread {
                             //뷰 렌더링
